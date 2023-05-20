@@ -1,0 +1,34 @@
+.image {
+    width: 20%;
+    margin : 10px;
+}
+
+
+.intro {
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+}
+
+.user_info {
+    display : show;
+}
+
+.prefer_info {
+    display : none;
+    flex-direction : column;
+}
+
+.result_1 {
+    display : none;
+
+}
+
+.result_2 {
+    display: none;
+}
+
+.result_3 {
+    display: none;
+}
