@@ -21,8 +21,6 @@
 .prefer_info {
     display : none;
     flex-direction : column;
-    margin-left : 1%;
-    margin-right : 1%;
 }
 
 .result_1 {
