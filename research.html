@@ -10,36 +10,43 @@
 </head>
 
 <body>
-    <header> Museum Pathfinder</header>
-    <!--사용자 정보 수집-->
-    <section class = "user_info">
-        <!--전시를 관람하러 온 가장 큰 이유-->
-        <article>
-            <h4 class="mt-5">전시를 관람하러 온 가장 큰 이유는 무엇입니까?</h4>
+    <header class = "mt-2 ml-3"> Museum Pathfinder </header>
+    
+
+    <section class = "user_info"> <!--사용자 정보 수집-->
+       
+        <article>  <!--전시를 관람하러 온 가장 큰 이유-->
+            <h4 class="mt-5" >전시를 관람하러 온 가장 큰 이유는 무엇입니까?</h4>
             <p>(한 가지를 선택해주세요)</p>
-            <input type="radio" name="q1" class="study"><span>학습/과제</span> <!--학습자형-->
-            <input type="radio" name="q1" class="culture"><span>문화생활</span> <!--문화향유자형-->
+            <input type="radio" name="q1" class="study"><span>학습/과제</span> &nbsp;&nbsp;<!--학습자형-->
+            <input type="radio" name="q1" class="culture"><span>문화생활</span> &nbsp;&nbsp;<!--문화향유자형-->
             <input type="radio" name="q1" class="healing"><span>힐링/여유</span> <!--휴식자형-->
         </article>
+        
         <br>
-        <!--전시 관람 가능 시간-->
-        <article>
+        
+        <article> <!--전시 관람 가능 시간-->
             <h4 class="mt-5">전시 관람에 사용할 수 있는 시간은 어느 정도 입니까?</h4>
             <p>(한 가지를 선택해주세요)</p>
-            <input type="radio" name="q2" class="short"><span>20분 미만</span>
-            <input type="radio" name="q2" class="average"><span>20분 이상 40분 미만</span>
+            <input type="radio" name="q2" class="short"><span>20분 미만</span>&nbsp;&nbsp;
+            <input type="radio" name="q2" class="average"><span>20분 이상 40분 미만</span>&nbsp;&nbsp;
             <input type="radio" name="q2" class="long"><span>40분 이상</span>
         </article>
+
         <!--다음 버튼; 유물 선호도 조사로 넘어가기-->
         <button class="mt-5" type="button" onclick='user_result();'>다음</button>
     </section> 
 
 
-    <!--유물 선호도 조사 ; 기준 유물-->
-    <section class = "prefer_info">
+
+
+    <section class = "prefer_info"> <!-- 유물 선호도 조사 ; 기준 유물 -->
         <article>
-            <h4>아래에서 흥미를 끄는 유물을 <u>5가지</u> 고르십시오</h4>
+            <h4 class = "mt-5" >     아래에서 흥미를 끄는 유물을 <u>5가지</u> 고르십시오</h4>
+            <br>
             <p> 더 적은 갯수 혹은 더 많은 갯수를 고를 경우 추천이 부정확해질 수 있습니다</p>
+            <br>
+            <section class = "prefer_pics">
             <input type = 'checkbox' name = 'tag_pic' value = '가야 금속 무기,방어구 실용적인 투박한 단순한 단단한 오래된 멋진 웃긴'/><img src="pics2/pic1.jpeg" width="28%" alt="유물1">
             <input type = 'checkbox' name = 'tag_pic' value = '통일신라 돌 불교 작은 귀중한 인물 정교한 투박한 단단한 익숙한 부드러운 온화한 신성한'/><img src="pics2/pic2.png" width="28%" alt="유물2">
             <input type = 'checkbox' name = 'tag_pic' value = '고려 돌 불교 건축부재 거대한 정교한 화려한 익숙한 멋진 신기한 웅장한'/><img src="pics2/pic3.jpeg" width="28%" alt="유물3">
@@ -71,6 +78,7 @@
             <input type = 'checkbox' name = 'tag_pic' value = '조선 종이 문헌,기록,비석 귀중한 깔끔한 자세한 단순한 신기한 멋진 귀여운'/><img src="pics2/pic22.png" width="28%" alt="유물22">
             <input type = 'checkbox' name = 'tag_pic' value = '고려 종이 문헌,기록,비석 권위있는 귀중한 깔끔한 문자 자세한 정교한 낯선 멋진 고요한'/><img src="pics2/pic23.jpeg" width="28%" alt="유물23">
             <input type = 'checkbox' name = 'tag_pic' value = '대한민국 종이 서화,회화 깔끔한 거대한 고요한 단순한 멋진 신비한 아름다운 웅장한 차가운'/><img src="pics2/pic24.png" width="28%" alt="유물24">
+            </section>
             <br><br>
             <button onclick='getCheckboxValue()'>확인</button>
 
@@ -81,46 +89,707 @@
 
 
 
-    <section class = "result_1">
-        <h4 class = "mt-5"> 시간 짧은 동선 추천</h4>
-            <br><img src = "pics/main_exhibit_hall.png" width = 100%>
-        <br><br>
-        <p>추천하는 유물 목록</p>
-        <div id="imageResults"></div>
+    <section> <!--모달팝업-->
+        <div id="modal" class="modal-overlay">
+            <div class="modal-window">
+                <div class="title">
+                    <h2>1전시실</h2>
+                </div>
+                <div class="close-area">X</div>
+                <div class="content" style="position: relative;">
+                    <div class="marking" style="position: absolute; ">
+                        <img src ="map/1A.png" width=100%></img>
+                    </div>    
+                    <div class="marking" id ="1B" style="position: absolute; display : none;">
+                        <img src ="map/1B.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1C" style="position: absolute; display : none;">
+                        <img src ="map/1C.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1D" style="position: absolute; display : none;">
+                        <img src ="map/1D.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1E" style="position: absolute; display : none;">
+                        <img src ="map/1E.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1F" style="position: absolute; display : none;">
+                        <img src ="map/1F.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1G" style="position: absolute; display : none;">
+                        <img src ="map/1G.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1H" style="position: absolute; display : none;">
+                        <img src ="map/1H.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1I" style="position: absolute; display : none;">
+                        <img src ="map/1I.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1J" style="position: absolute; display : none;">
+                        <img src ="map/1J.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1K" style="position: absolute; display : none;">
+                        <img src ="map/1K.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1L" style="position: absolute; display : none;">
+                        <img src ="map/1L.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1M" style="position: absolute; display : none;">
+                        <img src ="map/1M.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1N" style="position: absolute; display : none;">
+                        <img src ="map/1N.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1O" style="position: absolute; display : none;">
+                        <img src ="map/1O.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1P" style="position: absolute; display : none;">
+                        <img src ="map/1P.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1Q" style="position: absolute; display : none;">
+                        <img src ="map/1Q.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1R" style="position: absolute; display : none;">
+                        <img src ="map/1R.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1S" style="position: absolute; display : none;">
+                        <img src ="map/1S.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1T" style="position: absolute; display : none;">
+                        <img src ="map/1T.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1U" style="position: absolute; display : none;">
+                        <img src ="map/1U.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1V" style="position: absolute;">
+                        <img src ="map/1V.png" width=100%></img>
+                    </div>
+                    <img src = "map/1floor_1_bg.png" width = 100%></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal2" class="modal-overlay">
+            <div class="modal-window">
+                <div class="title">
+                    <h2>2전시실</h2>
+                </div>
+                <div class="close-area">X</div>
+                <div class="content" style="position: relative;">
+                    <div class="marking" style="position: absolute; ">
+                        <img src ="map/2A.png" width=100%></img>
+                    </div>    
+                    <div class="marking" id ="2B" style="position: absolute; display : none;">
+                        <img src ="map/2B.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2C" style="position: absolute; display : none;">
+                        <img src ="map/2C.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2D" style="position: absolute; display : none;">
+                        <img src ="map/2D.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2E" style="position: absolute; display : none;">
+                        <img src ="map/2E.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2F" style="position: absolute; display : none;">
+                        <img src ="map/2F.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2G" style="position: absolute; display : none;">
+                        <img src ="map/2G.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2H" style="position: absolute; display : none;">
+                        <img src ="map/2H.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2I" style="position: absolute; display : none;">
+                        <img src ="map/2I.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2J" style="position: absolute; display : none;">
+                        <img src ="map/2J.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2K" style="position: absolute; display : none;">
+                        <img src ="map/2K.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2L" style="position: absolute; display : none;">
+                        <img src ="map/2L.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2M" style="position: absolute; display : none;">
+                        <img src ="map/2M.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2N" style="position: absolute; display : none;">
+                        <img src ="map/2N.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2O" style="position: absolute; display : none;">
+                        <img src ="map/2O.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2P" style="position: absolute; display : none;">
+                        <img src ="map/2P.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2Q" style="position: absolute; display : none;">
+                        <img src ="map/2Q.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2R" style="position: absolute; display : none;">
+                        <img src ="map/2R.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2S" style="position: absolute; display : none;">
+                        <img src ="map/2S.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2T" style="position: absolute; display : none;">
+                        <img src ="map/2T.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2U" style="position: absolute; display : none;">
+                        <img src ="map/2U.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2V" style="position: absolute; display : none;">
+                        <img src ="map/2V.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2W" style="position: absolute; display : none;">
+                        <img src ="map/2W.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2X" style="position: absolute; ">
+                        <img src ="map/2X.png" width=100%></img>
+                    </div>
+                    <img src = "map/1floor_2_bg.png" width = 100%></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal3" class="modal-overlay">
+            <div class="modal-window">
+                <div class="title">
+                    <h2>기증전시실</h2>
+                </div>
+                <div class="close-area">X</div>
+                <div class="content" style="position: relative;">
+                    <div class="marking" style="position: absolute; ">
+                        <img src ="map/3A.png" width=100%></img>
+                    </div>    
+                    <div class="marking" id ="3B" style="position: absolute; display : none;">
+                        <img src ="map/3B.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3C" style="position: absolute; display : none;">
+                        <img src ="map/3C.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3D" style="position: absolute; display : none;">
+                        <img src ="map/3D.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3E" style="position: absolute; display : none;">
+                        <img src ="map/3E.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3F" style="position: absolute; display : none;">
+                        <img src ="map/3F.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3G" style="position: absolute; display : none;">
+                        <img src ="map/3G.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3H" style="position: absolute; display : none;">
+                        <img src ="map/3H.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3I" style="position: absolute; display : none;">
+                        <img src ="map/3I.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3J" style="position: absolute; display : none;">
+                        <img src ="map/3J.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3K" style="position: absolute; display : none;">
+                        <img src ="map/3K.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3L" style="position: absolute; display : none;">
+                        <img src ="map/3L.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3M" style="position: absolute; display : none;">
+                        <img src ="map/3M.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3N" style="position: absolute; display : none;">
+                        <img src ="map/3N.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3O" style="position: absolute; display : none;">
+                        <img src ="map/3O.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3P" style="position: absolute; display : none;">
+                        <img src ="map/3P.png" width=100%></img>
+                    </div>
+                    <img src = "map/b1floor_bg.png" width = 100%></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal4" class="modal-overlay">
+            <div class="modal-window">
+                <div class="title">
+                    <h2>1전시실</h2>
+                </div>
+                <div class="close-area">X</div>
+                <div class="content" style="position: relative;">
+                    <div class="marking" style="position: absolute; ">
+                        <img src ="map/1A.png" width=100%></img>
+                    </div>    
+                    <div class="marking" id ="1B" style="position: absolute; display : none;">
+                        <img src ="map/1B.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1C" style="position: absolute; display : none;">
+                        <img src ="map/1C.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1D" style="position: absolute; display : none;">
+                        <img src ="map/1D.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1E" style="position: absolute; display : none;">
+                        <img src ="map/1E.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1F" style="position: absolute; display : none;">
+                        <img src ="map/1F.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1G" style="position: absolute; display : none;">
+                        <img src ="map/1G.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1H" style="position: absolute; display : none;">
+                        <img src ="map/1H.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1I" style="position: absolute; display : none;">
+                        <img src ="map/1I.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1J" style="position: absolute; display : none;">
+                        <img src ="map/1J.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1K" style="position: absolute; display : none;">
+                        <img src ="map/1K.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1L" style="position: absolute; display : none;">
+                        <img src ="map/1L.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1M" style="position: absolute; display : none;">
+                        <img src ="map/1M.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1N" style="position: absolute; display : none;">
+                        <img src ="map/1N.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1O" style="position: absolute; display : none;">
+                        <img src ="map/1O.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1P" style="position: absolute; display : none;">
+                        <img src ="map/1P.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1Q" style="position: absolute; display : none;">
+                        <img src ="map/1Q.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1R" style="position: absolute; display : none;">
+                        <img src ="map/1R.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1S" style="position: absolute; display : none;">
+                        <img src ="map/1S.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1T" style="position: absolute; display : none;">
+                        <img src ="map/1T.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1U" style="position: absolute; display : none;">
+                        <img src ="map/1U.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1V" style="position: absolute;">
+                        <img src ="map/1V.png" width=100%></img>
+                    </div>
+                    <img src = "map/1floor_1_bg.png" width = 100%></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal5" class="modal-overlay">
+            <div class="modal-window">
+                <div class="title">
+                    <h2>2전시실</h2>
+                </div>
+                <div class="close-area">X</div>
+                <div class="content" style="position: relative;">
+                    <div class="marking" style="position: absolute; ">
+                        <img src ="map/2A.png" width=100%></img>
+                    </div>    
+                    <div class="marking" id ="2B" style="position: absolute; display : none;">
+                        <img src ="map/2B.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2C" style="position: absolute; display : none;">
+                        <img src ="map/2C.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2D" style="position: absolute; display : none;">
+                        <img src ="map/2D.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2E" style="position: absolute; display : none;">
+                        <img src ="map/2E.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2F" style="position: absolute; display : none;">
+                        <img src ="map/2F.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2G" style="position: absolute; display : none;">
+                        <img src ="map/2G.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2H" style="position: absolute; display : none;">
+                        <img src ="map/2H.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2I" style="position: absolute; display : none;">
+                        <img src ="map/2I.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2J" style="position: absolute; display : none;">
+                        <img src ="map/2J.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2K" style="position: absolute; display : none;">
+                        <img src ="map/2K.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2L" style="position: absolute; display : none;">
+                        <img src ="map/2L.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2M" style="position: absolute; display : none;">
+                        <img src ="map/2M.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2N" style="position: absolute; display : none;">
+                        <img src ="map/2N.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2O" style="position: absolute; display : none;">
+                        <img src ="map/2O.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2P" style="position: absolute; display : none;">
+                        <img src ="map/2P.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2Q" style="position: absolute; display : none;">
+                        <img src ="map/2Q.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2R" style="position: absolute; display : none;">
+                        <img src ="map/2R.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2S" style="position: absolute; display : none;">
+                        <img src ="map/2S.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2T" style="position: absolute; display : none;">
+                        <img src ="map/2T.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2U" style="position: absolute; display : none;">
+                        <img src ="map/2U.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2V" style="position: absolute; display : none;">
+                        <img src ="map/2V.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2W" style="position: absolute; display : none;">
+                        <img src ="map/2W.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2X" style="position: absolute; ">
+                        <img src ="map/2X.png" width=100%></img>
+                    </div>
+                    <img src = "map/1floor_2_bg.png" width = 100%></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal6" class="modal-overlay">
+            <div class="modal-window">
+                <div class="title">
+                    <h2>1전시실</h2>
+                </div>
+                <div class="close-area">X</div>
+                <div class="content" style="position: relative;">
+                    <div class="marking" style="position: absolute; ">
+                        <img src ="map/1A.png" width=100%></img>
+                    </div>    
+                    <div class="marking" id ="1B" style="position: absolute; display : none;">
+                        <img src ="map/1B.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1C" style="position: absolute; display : none;">
+                        <img src ="map/1C.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1D" style="position: absolute; display : none;">
+                        <img src ="map/1D.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1E" style="position: absolute; display : none;">
+                        <img src ="map/1E.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1F" style="position: absolute; display : none;">
+                        <img src ="map/1F.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1G" style="position: absolute; display : none;">
+                        <img src ="map/1G.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1H" style="position: absolute; display : none;">
+                        <img src ="map/1H.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1I" style="position: absolute; display : none;">
+                        <img src ="map/1I.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1J" style="position: absolute; display : none;">
+                        <img src ="map/1J.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1K" style="position: absolute; display : none;">
+                        <img src ="map/1K.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1L" style="position: absolute; display : none;">
+                        <img src ="map/1L.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1M" style="position: absolute; display : none;">
+                        <img src ="map/1M.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1N" style="position: absolute; display : none;">
+                        <img src ="map/1N.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1O" style="position: absolute; display : none;">
+                        <img src ="map/1O.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1P" style="position: absolute; display : none;">
+                        <img src ="map/1P.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1Q" style="position: absolute; display : none;">
+                        <img src ="map/1Q.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1R" style="position: absolute; display : none;">
+                        <img src ="map/1R.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1S" style="position: absolute; display : none;">
+                        <img src ="map/1S.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1T" style="position: absolute; display : none;">
+                        <img src ="map/1T.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1U" style="position: absolute; display : none;">
+                        <img src ="map/1U.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="1V" style="position: absolute;">
+                        <img src ="map/1V.png" width=100%></img>
+                    </div>
+                    <img src = "map/1floor_1_bg.png" width = 100%></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal7" class="modal-overlay">
+            <div class="modal-window">
+                <div class="title">
+                    <h2>2전시실</h2>
+                </div>
+                <div class="close-area">X</div>
+                <div class="content" style="position: relative;">
+                    <div class="marking" style="position: absolute; ">
+                        <img src ="map/2A.png" width=100%></img>
+                    </div>    
+                    <div class="marking" id ="2B" style="position: absolute; display : none;">
+                        <img src ="map/2B.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2C" style="position: absolute; display : none;">
+                        <img src ="map/2C.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2D" style="position: absolute; display : none;">
+                        <img src ="map/2D.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2E" style="position: absolute; display : none;">
+                        <img src ="map/2E.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2F" style="position: absolute; display : none;">
+                        <img src ="map/2F.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2G" style="position: absolute; display : none;">
+                        <img src ="map/2G.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2H" style="position: absolute; display : none;">
+                        <img src ="map/2H.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2I" style="position: absolute; display : none;">
+                        <img src ="map/2I.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2J" style="position: absolute; display : none;">
+                        <img src ="map/2J.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2K" style="position: absolute; display : none;">
+                        <img src ="map/2K.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2L" style="position: absolute; display : none;">
+                        <img src ="map/2L.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2M" style="position: absolute; display : none;">
+                        <img src ="map/2M.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2N" style="position: absolute; display : none;">
+                        <img src ="map/2N.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2O" style="position: absolute; display : none;">
+                        <img src ="map/2O.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2P" style="position: absolute; display : none;">
+                        <img src ="map/2P.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2Q" style="position: absolute; display : none;">
+                        <img src ="map/2Q.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2R" style="position: absolute; display : none;">
+                        <img src ="map/2R.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2S" style="position: absolute; display : none;">
+                        <img src ="map/2S.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2T" style="position: absolute; display : none;">
+                        <img src ="map/2T.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2U" style="position: absolute; display : none;">
+                        <img src ="map/2U.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2V" style="position: absolute; display : none;">
+                        <img src ="map/2V.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2W" style="position: absolute; display : none;">
+                        <img src ="map/2W.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="2X" style="position: absolute; ">
+                        <img src ="map/2X.png" width=100%></img>
+                    </div>
+                    <img src = "map/1floor_2_bg.png" width = 100%></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal8" class="modal-overlay">
+            <div class="modal-window">
+                <div class="title">
+                    <h2>기증전시실</h2>
+                </div>
+                <div class="close-area">X</div>
+                <div class="content" style="position: relative;">
+                    <div class="marking" style="position: absolute; ">
+                        <img src ="map/3A.png" width=100%></img>
+                    </div>    
+                    <div class="marking" id ="3B" style="position: absolute; display : none;">
+                        <img src ="map/3B.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3C" style="position: absolute; display : none;">
+                        <img src ="map/3C.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3D" style="position: absolute; display : none;">
+                        <img src ="map/3D.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3E" style="position: absolute; display : none;">
+                        <img src ="map/3E.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3F" style="position: absolute; display : none;">
+                        <img src ="map/3F.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3G" style="position: absolute; display : none;">
+                        <img src ="map/3G.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3H" style="position: absolute; display : none;">
+                        <img src ="map/3H.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3I" style="position: absolute; display : none;">
+                        <img src ="map/3I.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3J" style="position: absolute; display : none;">
+                        <img src ="map/3J.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3K" style="position: absolute; display : none;">
+                        <img src ="map/3K.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3L" style="position: absolute; display : none;">
+                        <img src ="map/3L.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3M" style="position: absolute; display : none;">
+                        <img src ="map/3M.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3N" style="position: absolute; display : none;">
+                        <img src ="map/3N.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3O" style="position: absolute; display : none;">
+                        <img src ="map/3O.png" width=100%></img>
+                    </div>
+                    <div class="marking" id ="3P" style="position: absolute; display : none;">
+                        <img src ="map/3P.png" width=100%></img>
+                    </div>
+                    <img src = "map/b1floor_bg.png" width = 100%></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class = "result_1"> <!-- 시간 짧은 동선 추천 창-->
+        <h4 class = "mt-5" ><center> 당신에게 전시물과 동선을 추천해드립니다</center></h4>
         <br>
+        <p><center>지도 속 전시관을 누르면 상세한 동선을 확인할 수 있습니다</center></p>
+        <div>
+
+            <div class = "buttons mt-5" style="position: absolute;">
+                
+                <div  style="position: relative;"><button type = "button" class = "btm_image" id = "btn-modal"><img src="map/button1.png" width = 95% onclick = check() ></img></button></div>
+                <br><br>
+                <div  style="position: relative;"><button type = "button" class = "btm_image" id = "btn-modal2"><img src="map/button2.png" width = 95% onclick = check2() ></img></button></div>
+        
+            </div>
+        
+            <img src="map/1floor_whole.png" width = 100% ></img>
+        
+        </div>
+        <br>
+        <br><br>
+        <p><center>추천하는 전시물 목록</center></p>
+        <div class = "recomment_pics" id="imageResults"></div>
+        
         
     </section>
 
-    <section class = "result_2">
-        <h4 class = "mt-5"> 시간 보통 동선 추천</h4>
-            <br><img src = "pics/main_exhibit_hall.png" width = 100%>
-        <br><br>
-        <p>추천하는 유물 목록</p>
-        <div id="imageResults2"></div>
+
+    <section class = "result_2"> <!-- 시간 보통 동선 추천창 -->
+        <h4 class = "mt-5" ><center> 당신에게 전시물과 동선을 추천해드립니다</center></h4>
         <br>
+        <p><center>지도 속 전시관을 누르면 상세한 동선을 확인할 수 있습니다</center></p>
+        <div>
+
+            <div class = "buttons mt-2" style="position: absolute;">
+
+                <div  style="position: relative;"><button type = "button" class = "btm_image" id = "btn-modal4"><img src="map/button1.png" width = 95% onclick = check() ></img></button></div>
+                <br><br>
+                <div  style="position: relative;"><button type = "button" class = "btm_image" id = "btn-modal5"><img src="map/button2.png" width = 95% onclick = check2() ></img></button></div>
+                <br><br><br><br><br><br><br>
+                <div  style="position: relative;"><button type = "button" class = "btm_image" id = "btn-modal3"><img src="map/button3.png" width = 55% onclick = check3() ></img></button></div>
+
+            </div>
+        
+            <img src="map/whole_map2.png" width = 100% ></img>
+        
+        </div>
+        <br>
+        <br><br>
+        <p><center>추천하는 전시물 목록</center></p>
+        <div class = "recomment_pics" id="imageResults2"></div>
+        
     </section>
 
-    <section class = "result_3">
-        <h4 class = "mt-5"> 시간 긴 동선 추천</h4>
-            <br><img src = "pics/main_exhibit_hall.png" width = 100%>
-        <br><br>
-        <p>추천하는 유물 목록</p>
-        <div id="imageResults3"></div>
+    <section class = "result_3"> <!-- 시간 긴 동선 추천창 -->
+        <h4 class = "mt-5" ><center> 당신에게 전시물과 동선을 추천해드립니다</center></h4>
         <br>
+        <p><center>지도 속 전시관을 누르면 상세한 동선을 확인할 수 있습니다</center></p>
+        <div>
+
+            <div class = "buttons mt-2" style="position: absolute;">
+
+                <div  style="position: relative;"><button type = "button" class = "btm_image" id = "btn-modal6"><img src="map/button1.png" width = 95% onclick = check() ></img></button></div>
+                <br><br>
+                <div  style="position: relative;"><button type = "button" class = "btm_image" id = "btn-modal7"><img src="map/button2.png" width = 95% onclick = check2() ></img></button></div>
+                <br><br><br><br><br><br><br>
+                <div  style="position: relative;"><button type = "button" class = "btm_image" id = "btn-modal8"><img src="map/button3.png" width = 55% onclick = check3() ></img></button></div>
+
+            </div>
+        
+            <img src="map/whole_map2.png" width = 100% ></img>
+        
+        </div>
+        <br>
+        <br><br>
+        <p><center>추천하는 전시물 목록</center></p>
+        <div class = "recomment_pics" id="imageResults3"></div>
 
     </section>
 
 </body>
 
-<!--처음으로 돌아가기 버튼-->
-<footer>
-    <br><br><br><br><br><br><a href="index.html" class="mt-5"> 처음으로 돌아가기</a>
+
+<footer> <!--처음으로 돌아가기 버튼-->
+    <br><br><br><a href="index.html" class="mt-5 ml-2"> 처음으로 돌아가기</a>
 </footer>
 
 <!--boots-->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-<script>
+
+
+<script> //vars
+
         let study_count = 0;
         let culture_count = 0;
         let healing_count = 0;
@@ -133,6 +802,10 @@
         let rcmmnd_items = [];
         let result_pic = [];
         let result_items = [];
+        const selectedNodes1 = [0,21]; 
+        const selectedNodes2 = [0,23];// 선택된 노드들의 인덱스
+        const selectedNodes3 = [0,15];
+        const selectedMarks = [];
         let images = [
             { src: 'pics/pic1.jpeg', condition: false },
             { src: 'pics/pic2.jpeg', condition: false },
@@ -290,14 +963,13 @@
 
         //전시관 노드 및 노드 간 거리 데이터
         const nodes1 = ["1A", "1B", "1C", "1D", "1E", "1F", "1G", "1H", "1I", "1J", "1K", "1L", "1M", "1N", "1O", "1P", "1Q", "1R", "1S", "1T", "1U", "1V"];
-        const selectedNodes1 = [0, 1, 3, 9, 12, 14, 17, 21]; // 선택된 노드들의 인덱스
         const distances1 = [
             [0,2,4,6,8,8,8,6,9,10,14,15,15,17,17,16,13,14,9,6,3,10],
             [2,0,2,4,6,8,8,8,11,12,16,17,16,17,18,18,15,16,11,8,5,14],
             [4,2,0,3,5,7,8,9,12,14,17,19,19,20,21,18,17,16,13,10,7,14], 
             [6,4,3,0,2,5,7,9,13,15,18,20,20,22,22,20,20,18,14,10,7,16],
             [8,6,5,2,0,3,6,9,13,15,19,21,21,23,23,22,19,20,15,12,9,18],
-            [8,8,7,5,3,0,3,8,11,14,17,19,19,22,22,21,18,19,14,12,9,17],
+            [8,8,7,5,3,0,3,8,11,14,17,19,19,22,22,21,18,19,14,12,9,18],
             [8,8,8,7,6,3,0,5,8,11,15,16,16,19,19,19,16,18,12,9,7,16],
             [6,8,9,9,9,8,5,0,3,6,9,11,12,14,14,13,10,12,7,4,4,10],
             [9,11,12,13,13,11,8,3,0,3,6,8,9,11,12,11,8,11,6,4,6,9],
@@ -313,11 +985,10 @@
             [9,11,13,14,15,14,12,7,6,4,6,7,7,8,8,6,4,5,0,3,6,3],
             [6,8,10,10,12,12,9,4,4,4,7,9,9,11,11,9,7,8,3,0,3,6],
             [3,5,7,7,9,9,7,4,6,7,10,12,13,14,14,13,10,11,6,3,0,9],
-            [10,14,14,16,18,17,16,10,9,6,7,8,7,7,6,4,4,2,3,6,9,0],
+            [10,14,14,16,18,18,16,10,9,6,7,8,7,7,6,4,4,2,3,6,9,0],
         ];
 
         const nodes2 = ["2A", "2B", "2C", "2D","2E", "2F", "2G", "2H", "2I", "2J", "2K", "2L", "2M", "2N", "2O", "2P", "2Q", "2R", "2S", "2T", "2U", "2V", "2W", "2X" ];
-        const selectedNodes2 = [];
         const distances2 = [
         [0,3,5,7,4,6,7,2,7,3,7,6,9,10,9,11,15,17,17,18,18,21,15,13],
         [3,0,3,4,3,5,7,3,8,5,8,9,11,12,12,13,18,19,20,21,20,19,17,14],
@@ -346,7 +1017,6 @@
         ];
 
         const nodes3 = ["3A", "3B", "3C", "3D", "3E", "3F", "3G", "3H", "3I", "3J","3K","3L","3M","3N","3O","3P"];
-        const selectedNodes3 = [];
         const distances3 = [
         [0,3,4,3,4,8,7,9,10,16,22,23,27,20,18,16],
         [3,0,1,3,5,5,6,9,9,10,18,19,26,17,17,16],
@@ -370,8 +1040,7 @@
 </script>
 
 
-<!--수집한 사용자 정보 데이터화 및 분석-->
-<script>
+<script> // 관람자 정보 분석 및 결과창으로 넘어가기
     function user_result() {
 
 
@@ -449,14 +1118,14 @@
         } else {
             $(".user_info").hide();
             $(".prefer_info").show();
+            
             // 경로 계산
-            calculateOptimalRoute(nodes1, selectedNodes1, distances1);
+            //calculateOptimalRoute(nodes1, selectedNodes1, distances1);
         }
     }
 </script>
 
-<!--선호 유물 데이터 분석 및 추천-->
-<script>
+<script> //선호 유물 데이터 분석 및 추천
     function getCheckboxValue() {
         const query = 
         'input[name="tag_pic"]:checked';
@@ -676,18 +1345,13 @@
         
         
             
-       /* for (let i =0; i < 23; i++) {
-           if(rcmmnd_items.includes('item'+ i) == true) {
-                result_pic.push('pic'+i);
-                //console.log('item'+i);
-           }
-        }*/
         function showImageResults() {
             var container = document.getElementById('imageResults');
 
             // 이미지 데이터 배열을 순회하며 조건에 맞는 이미지를 보여줌
-            for (i = 0; i < 130; i++) {
-                var image = images[i];
+            for (i = 1; i < 131; i++) {
+                let j = i-1;
+                var image = images[j];
                 if ( result_pic.includes("pic"+i)==true ){
                     var imgElement = document.createElement('img');
                     imgElement.src = image.src;
@@ -702,8 +1366,9 @@
             var container = document.getElementById('imageResults2');
 
             // 이미지 데이터 배열을 순회하며 조건에 맞는 이미지를 보여줌
-            for (i = 0; i < 151; i++) {
-                var image = images[i];
+            for (i = 1; i < 152; i++) {
+                let j = i-1;
+                var image = images[j];
                 if ( result_pic.includes("pic"+i)==true ){
                     var imgElement = document.createElement('img');
                     imgElement.src = image.src;
@@ -718,8 +1383,9 @@
             var container = document.getElementById('imageResults3');
 
             // 이미지 데이터 배열을 순회하며 조건에 맞는 이미지를 보여줌
-            for (i = 0; i < 151; i++) {
-                var image = images[i];
+            for (i = 0; i < 152; i++) {
+                let j = i-1;
+                var image = images[j];
                 if ( result_pic.includes("pic"+i)==true ){
                     var imgElement = document.createElement('img');
                     imgElement.src = image.src;
@@ -738,7 +1404,7 @@
                 result_items.push(recommendedItemNames[t]);
                 t++;
             }
-            for (let y = 0; y < 151; y++) {
+            for (let y = 1; y < 152; y++) {
                 if (result_items.includes('item'+y) ==true) {
                     result_pic.push('pic'+y);
                 }
@@ -752,7 +1418,7 @@
                 result_items.push(recommendedItemNames[t]);
                 t++;
             }   
-            for (let y = 0; y < 151; y++) {
+            for (let y = 1; y < 152; y++) {
                 if (result_items.includes('item'+y) ==true) {
                     result_pic.push('pic'+y);
                 }
@@ -765,7 +1431,7 @@
                 result_items.push(recommendedItemNames[t]);
                 t++;
             }   
-            for (let y = 0; y < 151; y++) {
+            for (let y = 1; y < 152; y++) {
                 if (result_items.includes('item'+y) ==true) {
                     result_pic.push('pic'+y);
                 }
@@ -778,16 +1444,234 @@
 
          
 }
-  
-    
-
 
 </script>
 
+<script> 
+    function check() {
+        const selectedNodes1 = [0,21];
+        for (let i=0; i<result_pic.length; i++) {
+            if(result_pic[i]=="pic1") {
+                console.log("1B")
+                selectedNodes1.push(1)
+            } else if (result_pic[i]=="pic2" || result_pic[i]=="pic3" ) {
+                console.log("1C")
+                selectedNodes1.push(2)
+            } else if (result_pic[i]=="pic4" || result_pic[i]=="pic5") {
+                console.log("1D")
+                selectedNodes1.push(3)
+            } else if (result_pic[i]=="pic6" || result_pic[i]=="pic7" || result_pic[i]=="pic8") {
+                console.log("1E")
+                selectedNodes1.push(4)
+            } else if (result_pic[i]=="pic9") {
+                console.log("1F")
+                selectedNodes1.push(5)
+            } else if (result_pic[i]=="pic10") {
+                console.log("1G")
+                selectedNodes1.push(6)
+            } else if (result_pic[i]=="pic11" || result_pic[i]=="pic12" || result_pic[i]=="pic13" || result_pic[i]=="pic14") {
+                console.log("1U")
+                selectedNodes1.push(20)
+            } else if (result_pic[i]=="pic15") {
+                console.log("1H")
+                selectedNodes1.push(7)
+            } else if (result_pic[i]=="pic16") {
+                console.log("1I")
+                selectedNodes1.push(8)
+            } else if (result_pic[i]=="pic17") {
+                console.log("1T")
+                selectedNodes1.push(19)
+            } else if (result_pic[i]=="pic18" || result_pic[i]=="pic19") {
+                console.log("1J")
+                selectedNodes1.push(9)
+            } else if (result_pic[i]=="pic20") {
+                console.log("1S")
+                selectedNodes1.push(18)
+            } else if (result_pic[i]=="pic21") {
+                console.log("1K")
+                selectedNodes1.push(10)
+            } else if (result_pic[i]=="pic22" || result_pic[i]=="pic23") {
+                console.log("1L")
+                selectedNodes1.push(11)
+            } else if (result_pic[i]=="pic24" || result_pic[i]=="pic25") {
+                console.log("1M")
+                selectedNodes1.push(12)
+            } else if (result_pic[i]=="pic26") {
+                console.log("1N")
+                selectedNodes1.push(13)
+            } else if (result_pic[i]=="pic27") {
+                console.log("1Q")
+                selectedNodes1.push(16)
+            } else if (result_pic[i]=="pic28") {
+                console.log("1O")
+                selectedNodes1.push(14)
+            } else if (result_pic[i]=="pic29") {
+                console.log("1P")
+                selectedNodes1.push(15)
+            } else if (result_pic[i]=="pic30" || result_pic[i]=="pic31") {
+                console.log("1R")
+                selectedNodes1.push(17)
+            }
+        }
+        
+        calculateOptimalRoute(nodes1, selectedNodes1, distances1);
+    }
+    function check2() {
+        const selectedNodes2 = [0,23];
+        for (let i=0; i<result_pic.length; i++) {
+            if (result_pic[i]=="pic32" ||result_pic[i]=="pic33"){
+                console.log("2B")
+                selectedNodes2.push(1)
+            } else if (result_pic[i]=="pic34" || result_pic[i]=="pic35" || result_pic[i]=="pic36" || result_pic[i]=="pic37" ||result_pic[i]=="pic38" || result_pic[i]=="pic39" || result_pic[i]=="pic40") {
+                console.log("2C")
+                selectedNodes2.push(2)
+            } else if (result_pic[i]=="pic41" || result_pic[i]=="pic42" || result_pic[i]=="pic43" || result_pic[i]=="pic44" || result_pic[i]=="pic45" || result_pic[i]=="pic46" || result_pic[i]=="pic47" || result_pic[i]=="pic48") {
+                console.log("2D")
+                selectedNodes2.push(3)
+            } else if (result_pic[i]=="pic49" || result_pic[i]=="pic50" || result_pic[i]=="pic51" || result_pic[i]=="pic52" || result_pic[i]=="pic53" || result_pic[i]=="pic54" || result_pic[i]=="pic55" || result_pic[i]=="pic56" || result_pic[i]=="pic57" || result_pic[i]=="pic58") {
+                console.log("2F")
+                selectedNodes2.push(5)
+            } else if (result_pic[i]=="pic59" || result_pic[i]=="pic60" || result_pic[i]=="pic61") {
+                console.log("2G")
+                selectedNodes2.push(6)
+            } else if (result_pic[i]=="pic62" || result_pic[i]=="pic63" || result_pic[i]=="pic64" || result_pic[i]=="pic65") {
+                console.log("2I")
+                selectedNodes2.push(8)
+            } else if (result_pic[i]=="pic66") {
+                console.log("2E")
+                selectedNodes2.push(4)
+            } else if (result_pic[i]=="pic67") {
+                console.log("2H")
+                selectedNodes2.push(7)
+            } else if (result_pic[i]=="pic68" || result_pic[i]=="pic69" || result_pic[i]=="pic70" || result_pic[i]=="pic71" || result_pic[i]=="pic72" || result_pic[i]=="pic73" || result_pic[i]=="pic74" || result_pic[i]=="pic75") {
+                console.log("2J")
+                selectedNodes2.push(9)
+            } else if (result_pic[i]=="pic76" || result_pic[i]=="pic77" || result_pic[i]=="pic78" || result_pic[i]=="pic79" || result_pic[i]=="pic80" || result_pic[i]=="pic81") {
+                console.log("2L")
+                selectedNodes2.push(11)
+            } else if (result_pic[i]=="pic82" || result_pic[i]=="pic83") {
+                console.log("2K")
+                selectedNodes2.push(10)
+            } else if (result_pic[i]=="pic84" || result_pic[i]=="pic85" || result_pic[i]=="pic86" || result_pic[i]=="pic87" || result_pic[i]=="pic88") {
+                console.log("2M")
+                selectedNodes2.push(12)
+            } else if (result_pic[i]=="pic89" || result_pic[i]=="pic90" || result_pic[i]=="pic91" || result_pic[i]=="pic92") {
+                console.log("2N")
+                selectedNodes2.push(13)
+            } else if (result_pic[i]=="pic93" || result_pic[i]=="pic94" || result_pic[i]=="pic95") {
+                console.log("2P")
+                selectedNodes2.push(15)
+            } else if (result_pic[i]=="pic96") {
+                console.log("2O")
+                selectedNodes2.push(14)
+            } else if (result_pic[i]=="pic97" || result_pic[i]=="pic98" || result_pic[i]=="pic99") {
+                console.log("2Q")
+                selectedNodes2.push(16)
+            } else if (result_pic[i]=="pic100" || result_pic[i]=="pic101" || result_pic[i]=="pic102" || result_pic[i]=="pic103" || result_pic[i]=="pic104" || result_pic[i]=="pic105" || result_pic[i]=="pic106") {
+                console.log("2R")
+                selectedNodes2.push(17)
+            } else if (result_pic[i]=="pic107" || result_pic[i]=="pic108" || result_pic[i]=="pic109" || result_pic[i]=="pic110" || result_pic[i]=="pic111" || result_pic[i]=="pic112" || result_pic[i]=="pic113") {
+                console.log("2S")
+                selectedNodes2.push(18)
+            } else if (result_pic[i]=="pic114" || result_pic[i]=="pic115" || result_pic[i]=="pic116" || result_pic[i]=="pic117" || result_pic[i]=="pic118" || result_pic[i]=="pic119" || result_pic[i]=="pic120") {
+                console.log("2T")
+                selectedNodes2.push(19)
+            } else if (result_pic[i]=="pic121" || result_pic[i]=="pic122" || result_pic[i]=="pic123" || result_pic[i]=="pic124" || result_pic[i]=="pic125" || result_pic[i]=="pic126" || result_pic[i]=="pic127") {
+                console.log("2U")
+                selectedNodes2.push(20)
+            } else if (result_pic[i]=="pic128" || result_pic[i]=="pic129") {
+                console.log("2V")
+                selectedNodes2.push(21)
+            } else if (result_pic[i]=="pic130") {
+                console.log("2W")
+                selectedNodes2.push(22)
+            }
+        }
+        
+        calculateOptimalRoute(nodes2, selectedNodes2, distances2);
+    }
+    function check3() {
+        const selectedNodes3 = [0,15];
+        for (let i=0; i<result_pic.length; i++) {
+            if (result_pic[i]=="pic131"){
+                console.log("3D")
 
-<script>
+            } else if (result_pic[i]=="pic132") {
+                console.log("3B")
+
+            } else if (result_pic[i]=="pic133") {
+                console.log("3C")
+
+            } else if (result_pic[i]=="pic134") {
+                console.log("3F")
+
+            } else if (result_pic[i]=="pic135") {
+                console.log("3J")
+
+            } else if (result_pic[i]=="pic136") {
+                console.log("3I")
+
+            } else if (result_pic[i]=="pic137") {
+                console.log("3K")
+                
+            } else if (result_pic[i]=="pic138") {
+                console.log("3L")
+
+            } else if (result_pic[i]=="pic139" || result_pic[i]=="pic140" || result_pic[i]=="pic141") {
+                console.log("3M")
+
+            } else if (result_pic[i]=="pic142" || result_pic[i]=="pic143" || result_pic[i]=="pic144" || result_pic[i]=="pic145") {
+                console.log("3N")
+
+            } else if (result_pic[i]=="pic146") {
+                console.log("3O")
+
+            } else if (result_pic[i]=="pic147") {
+                console.log("3P")
+
+            } else if (result_pic[i]=="pic148" || result_pic[i]=="pic149") {
+                console.log("3H")
+
+            } else if (result_pic[i]=="pic150") {
+                console.log("3G")
+
+            } else if (result_pic[i]=="pic151") {
+                console.log("3E")
+            }
+        }
+    }
+    </script>
+
+
+
+<script> //최적의 동선 추천
     //최적경로 동선 추천 함수
     function calculateOptimalRoute(nodes, selectedNodes, distances) {
+      const N = selectedNodes.length;
+      const distanceMatrix = [];
+    
+      // 거리 행렬 생성
+      for (let i = 0; i < N; i++) {
+        const row = [];
+        for (let j = 0; j < N; j++) {
+          if (i === j) {
+            row.push(0);
+          } else {
+            const distance = distances[selectedNodes[i]][selectedNodes[j]];
+            row.push(distance !== undefined ? distance : Infinity);
+          }
+        }
+        distanceMatrix.push(row);
+      }
+    
+      // 경로 계산
+      const result = tspSolver(distanceMatrix);
+    
+      // 결과 출력
+      console.log("최적 경로:", result.path.map(index => nodes[selectedNodes[index]]));
+    }
+
+    function calculateOptimalRoute2(nodes, selectedNodes, distances) {
       const N = selectedNodes.length;
       const distanceMatrix = [];
     
@@ -841,7 +1725,48 @@
   }
 
   path.push(current); // 마지막 노드 추가
+  
   //path.push(0); // 시작 노드로 돌아오는 경로 추가
+
+  let totalDistance = 0;
+  for (let i = 0; i < N; i++) {
+    totalDistance += distances[path[i]][path[i + 1]];
+  }
+
+  return { path, distance: totalDistance };
+}
+
+function tspSolver2(distances) {
+  const N = distances.length;
+  const visited = Array(N).fill(false); // 방문 여부 배열
+  const path = []; // 경로 배열
+  let current = 0; // 현재 위치 (시작 노드는 항상 0번째 노드)
+
+  visited[current] = true;
+
+  for (let i = 0; i < N - 1; i++) {
+    let minDistance = Infinity;
+    let nearestNode = -1;
+
+    for (let j = 0; j < N; j++) {
+      if (!visited[j] && distances[current][j] < minDistance) {
+        minDistance = distances[current][j];
+        nearestNode = j;
+      }
+    }
+
+    if (nearestNode === -1) {
+      break; // 선택되지 않은 노드가 없을 경우 종료
+    }
+
+    path.push(current);
+    visited[nearestNode] = true;
+    current = nearestNode;
+  }
+
+  path.push(current); // 마지막 노드 추가
+  
+  path.push(0); // 시작 노드로 돌아오는 경로 추가
 
   let totalDistance = 0;
   for (let i = 0; i < N; i++) {
@@ -853,4 +1778,86 @@
 
 </script>
 
+<script>
+    const modal = document.getElementById("modal")
+        const btnModal = document.getElementById("btn-modal")
+        btnModal.addEventListener("click", e => {
+            modal.style.display = "flex"
+        })
+        const closeBtn = modal.querySelector(".close-area")
+        closeBtn.addEventListener("click", e => {
+            modal.style.display = "none"
+        })
+
+    const modal2 = document.getElementById("modal2")
+        const btnModal2 = document.getElementById("btn-modal2")
+        btnModal2.addEventListener("click", e => {
+            modal2.style.display = "flex"
+        })
+        const closeBtn2 = modal2.querySelector(".close-area")
+        closeBtn2.addEventListener("click", e => {
+            modal2.style.display = "none"
+        })
+
+    const modal3 = document.getElementById("modal3")
+        const btnModal3 = document.getElementById("btn-modal3")
+        btnModal3.addEventListener("click", e => {
+            modal3.style.display = "flex"
+        })
+        const closeBtn3 = modal3.querySelector(".close-area")
+        closeBtn3.addEventListener("click", e => {
+            modal3.style.display = "none"
+        })
+
+    const modal4 = document.getElementById("modal4")
+        const btnModal4 = document.getElementById("btn-modal4")
+        btnModal4.addEventListener("click", e => {
+            modal4.style.display = "flex"
+        })
+        const closeBtn4 = modal4.querySelector(".close-area")
+        closeBtn4.addEventListener("click", e => {
+            modal4.style.display = "none"
+        })   
+
+    const modal5 = document.getElementById("modal5")
+        const btnModal5 = document.getElementById("btn-modal5")
+        btnModal5.addEventListener("click", e => {
+            modal5.style.display = "flex"
+        })
+        const closeBtn5 = modal5.querySelector(".close-area")
+        closeBtn5.addEventListener("click", e => {
+            modal5.style.display = "none"
+        })     
+    
+    const modal6 = document.getElementById("modal6")
+        const btnModal6 = document.getElementById("btn-modal6")
+        btnModal6.addEventListener("click", e => {
+            modal6.style.display = "flex"
+        })
+        const closeBtn6 = modal6.querySelector(".close-area")
+        closeBtn6.addEventListener("click", e => {
+            modal6.style.display = "none"
+        })         
+    
+
+    const modal7 = document.getElementById("modal7")
+        const btnModal7 = document.getElementById("btn-modal7")
+        btnModal7.addEventListener("click", e => {
+            modal7.style.display = "flex"
+        })
+        const closeBtn7 = modal7.querySelector(".close-area")
+        closeBtn7.addEventListener("click", e => {
+            modal7.style.display = "none"
+        })     
+    
+    const modal8 = document.getElementById("modal8")
+        const btnModal8 = document.getElementById("btn-modal8")
+        btnModal8.addEventListener("click", e => {
+            modal8.style.display = "flex"
+        })
+        const closeBtn8 = modal8.querySelector(".close-area")
+        closeBtn8.addEventListener("click", e => {
+            modal8.style.display = "none"
+        })     
+</script>
 </html>
