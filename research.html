@@ -1429,45 +1429,129 @@
         $(".prefer_info").hide();
         
         if (user_type.includes('T1')) {
-            t = 0; 
-            while (t<=20) {
-                result_items.push(recommendedItemNames[t]);
-                t++;
-            }
-            for (let y = 1; y < 152; y++) {
-                if (result_items.includes('item'+y) ==true) {
-                    result_pic.push('pic'+y);
+            if (user_type.includes('healing_rest')) {
+                t = 0; 
+                while (t<=10) {
+                    result_items.push(recommendedItemNames[t]);
+                    t++;
                 }
-            }           
-            $(".result_1").show();
-            showImageResults();
+                for (let y = 1; y < 131; y++) {
+                    if (result_items.includes('item'+y) ==true) {
+                        result_pic.push('pic'+y);
+                    }
+                }           
+                $(".result_1").show();
+                showImageResults();
+            } else if (user_type.includes('culture_act')) {
+                t = 0;
+                while (t<=15) {
+                    result_items.push(recommendedItemNames[t]);
+                    t++
+                }
+                for (let y = 1; y <131; y++) {
+                    if (result_items.includes('item'+y) ==true) {
+                        result_pic.push('pic'+y);
+                    }
+                }
+                $(".result_1").show();
+                showImageResults();
+            } else if (user_type.includes('study_hw')) {
+                t = 0;
+                while (t<=20) {
+                    result_items.push(recommendedItemNames[t]);
+                    t++
+                }
+                for (let y = 1; y <131; y++) {
+                    if (result_items.includes('item'+y) ==true) {
+                        result_pic.push('pic'+y);
+                    }
+                }
+                $(".result_1").show();
+                showImageResults();
+            }
             
         } else if (user_type.includes('T2')){
-            t = 0; 
-            while (t<=40) {
-                result_items.push(recommendedItemNames[t]);
-                t++;
-            }   
-            for (let y = 1; y < 152; y++) {
-                if (result_items.includes('item'+y) ==true) {
-                    result_pic.push('pic'+y);
+            if (user_type.includes('healing_rest')) {
+                t = 0; 
+                while (t<=30) {
+                    result_items.push(recommendedItemNames[t]);
+                    t++;
                 }
-            }  
-            $(".result_2").show();
-            showImageResults2();
+                    for (let y = 1; y < 152; y++) {
+                        if (result_items.includes('item'+y) ==true) {
+                            result_pic.push('pic'+y);
+                        }
+                    }  
+                    $(".result_2").show();
+                    showImageResults2();
+            } else if (user_type.includes('culture_act')) {
+                t = 0; 
+                while (t<=35) {
+                    result_items.push(recommendedItemNames[t]);
+                    t++;
+                }   
+                for (let y = 1; y < 152; y++) {
+                    if (result_items.includes('item'+y) ==true) {
+                        result_pic.push('pic'+y);
+                    }
+                }  
+                $(".result_2").show();
+                showImageResults2();
+            } else if (user_type.includes('study_hw')) {
+                t = 0; 
+                while (t<=40) {
+                    result_items.push(recommendedItemNames[t]);
+                    t++;
+                }   
+                for (let y = 1; y < 152; y++) {
+                    if (result_items.includes('item'+y) ==true) {
+                        result_pic.push('pic'+y);
+                    }
+                }  
+                $(".result_2").show();
+                showImageResults2();
+            }
         } else if (user_type.includes('T3')){
-            t = 0; 
-            while (t<=90) {
-                result_items.push(recommendedItemNames[t]);
-                t++;
-            }   
-            for (let y = 1; y < 152; y++) {
-                if (result_items.includes('item'+y) ==true) {
-                    result_pic.push('pic'+y);
+            if(user_type.includes('healing_rest')){
+                t = 0; 
+                while (t<=70) {
+                    result_items.push(recommendedItemNames[t]);
+                    t++;
+                }   
+                for (let y = 1; y < 152; y++) {
+                    if (result_items.includes('item'+y) ==true) {
+                        result_pic.push('pic'+y);
+                    }
+                }  
+                $(".result_3").show();
+                showImageResults3();
+            } else if (user_type.includes('culture_act')) {
+                t = 0; 
+                while (t<=90) {
+                    result_items.push(recommendedItemNames[t]);
+                    t++;
+                }   
+                for (let y = 1; y < 152; y++) {
+                    if (result_items.includes('item'+y) ==true) {
+                        result_pic.push('pic'+y);
+                    }
+                }  
+                $(".result_3").show();
+                showImageResults3();
+            } else if (user_type.includes('study_hw')) {
+                t = 0; 
+                while (t<=110) {
+                    result_items.push(recommendedItemNames[t]);
+                    t++;
+                }   
+                for (let y = 1; y < 152; y++) {
+                    if (result_items.includes('item'+y) ==true) {
+                        result_pic.push('pic'+y);
+                    }
+                }  
+                $(".result_3").show();
+                showImageResults3();
                 }
-            }  
-            $(".result_3").show();
-            showImageResults3();
         }
        
         
