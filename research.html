@@ -479,7 +479,7 @@
                     </div>
                     <img src = "map/1floor_2_bg.png" width = 100%></div>
 
-                    <div><p id="output5"><p></div>
+                    <div id="output5"></div>
                 </div>
             </div>
         </div>
@@ -559,7 +559,7 @@
                     </div>
                     <img src = "map/1floor_1_bg.png" width = 100%></div>
 
-                    <div class ="routine" id="output6"></div>
+                    <div id="output6"></div>
                 </div>
             </div>
         </div>
@@ -645,7 +645,7 @@
                     </div>
                     <img src = "map/1floor_2_bg.png" width = 100%></div>
 
-                    <div class ="routine" id="output7"></div>
+                    <div id="output7"></div>
                 </div>
             </div>
         </div>
@@ -707,7 +707,7 @@
                     </div>
                     <img src = "map/b1floor_bg.png" width = 100%></div>
 
-                    <div class ="routine" id="output8"></div>
+                    <div id="output8"></div>
                 </div>
             </div>
         </div>
@@ -4579,13 +4579,11 @@
         outputDiv2.textContent = routine2;
         outputDiv1 = document.getElementById("output4");
         outputDiv1.textContent = routine1;
-        routine2 = '"' + course2 + '"';
         outputDiv2 = document.getElementById("output5");
         outputDiv2.textContent = routine2;
-        outputDiv1 = document.getElementById("output7");
+        outputDiv1 = document.getElementById("output6");
         outputDiv1.textContent = routine1;
-        routine2 = '"' + course2 + '"';
-        outputDiv2 = document.getElementById("output8");
+        outputDiv2 = document.getElementById("output7");
         outputDiv2.textContent = routine2;
     }
 
@@ -4615,9 +4613,9 @@
         course3 = route3.join("->");
         routine3 = '"' + course3 + '"';
         outputDiv3 = document.getElementById("output3");
-        outputDiv3.textContent = routine2;
-        outputDiv3 = document.getElementById("output6");
-        outputDiv3.textContent = routine2;
+        outputDiv3.textContent = routine3;
+        outputDiv3 = document.getElementById("output8");
+        outputDiv3.textContent = routine3;
     }
 
   function tspSolver(distances) {
