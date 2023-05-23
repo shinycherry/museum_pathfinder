@@ -166,7 +166,7 @@
                     </div>
                     <img src = "map/1floor_1_bg.png" width = 100%>
 
-                    <div id="output1"></div>
+                    <center><div id="output1"></div></center>
                 </div>
             </div>
         </div>
@@ -252,7 +252,7 @@
                     </div>
                     <img src = "map/1floor_2_bg.png" width = 100%></div>
                     
-                    <div id="output2"></div>
+                    <center><div id="output2"></div></center>
                 </div>
             </div>
         </div>
@@ -314,7 +314,7 @@
                     </div>
                     <img src = "map/b1floor_bg.png" width = 100%></div>
 
-                    <div id="output3"></div>
+                    <center><div id="output3"></div></center>
                 </div>
             </div>
         </div>
@@ -394,7 +394,7 @@
                     </div>
                     <img src = "map/1floor_1_bg.png" width = 100%></div>
                     
-                    <div id="output4"></div>
+                    <center><div id="output4"></div></center>
                 </div>
             </div>
         </div>
@@ -560,7 +560,7 @@
                     </div>
                     <img src = "map/1floor_1_bg.png" width = 100%></div>
 
-                    <div id="output6"></div>
+                    <center><div id="output6"></div></center>
                 </div>
             </div>
         </div>
@@ -646,7 +646,7 @@
                     </div>
                     <img src = "map/1floor_2_bg.png" width = 100%></div>
 
-                    <div id="output7"></div>
+                    <center><div id="output7"></div></center>
                 </div>
             </div>
         </div>
@@ -708,7 +708,7 @@
                     </div>
                     <img src = "map/b1floor_bg.png" width = 100%></div>
 
-                    <div id="output8"></div>
+                    <center><div id="output8"></div></center>
                 </div>
             </div>
         </div>
@@ -1517,7 +1517,7 @@
         } else if (user_type.includes('T3')){
             if(user_type.includes('healing_rest')){
                 t = 0; 
-                while (t<=70) {
+                while (t<=60) {
                     result_items.push(recommendedItemNames[t]);
                     t++;
                 }   
@@ -1530,7 +1530,7 @@
                 showImageResults3();
             } else if (user_type.includes('culture_act')) {
                 t = 0; 
-                while (t<=90) {
+                while (t<=70) {
                     result_items.push(recommendedItemNames[t]);
                     t++;
                 }   
@@ -1543,7 +1543,7 @@
                 showImageResults3();
             } else if (user_type.includes('study_hw')) {
                 t = 0; 
-                while (t<=110) {
+                while (t<=90) {
                     result_items.push(recommendedItemNames[t]);
                     t++;
                 }   
