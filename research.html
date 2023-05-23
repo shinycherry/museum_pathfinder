@@ -797,7 +797,8 @@
 
 <footer> <!--처음으로 돌아가기 버튼-->
     <br><br><br><a href="index.html" class="mt-5 ml-2"> 처음으로 돌아가기</a>
-    <br><br><button class = "link_button" onclick="goToURL('https://forms.gle/rQRwuqFs8KAUC73i9')">설문조사 응답</button>
+    <br><a class="ml-2" id="link" href="#">설문조사 응답하기</a>
+    <!--<br><br><button class = "link_button" onclick="goToURL('https://forms.gle/rQRwuqFs8KAUC73i9')">설문조사 응답</button>-->
 </footer>
 
 <!--boots-->
@@ -4875,5 +4876,8 @@ function tspSolver2(distances) {
     function goToURL(url) {
       window.location.href = url;
     }
+
+    var linkElement = document.getElementById("link");
+    linkElement.href = "https://forms.gle/rQRwuqFs8KAUC73i9";
 </script>
 </html>
