@@ -95,6 +95,7 @@
                 <div class="title">
                     <h2>1전시실</h2>
                 </div>
+                
                 <div class="close-area">X</div>
                 <div class="content" style="position: relative;">
                     <div class="marking" style="position: absolute; ">
@@ -263,7 +264,7 @@
                 </div>
                 <div class="close-area">X</div>
                 <div class="content" style="position: relative;">
-                    <div class="marking" style="position: absolute; ">
+                    <div class="marking" style="position: absolute; display : none; ">
                         <img src ="map/3A.png" width=100%></img>
                     </div>    
                     <div class="marking" id ="3B" style="position: absolute; display : none;">
@@ -657,7 +658,7 @@
                 </div>
                 <div class="close-area">X</div>
                 <div class="content" style="position: relative;">
-                    <div class="marking3" style="position: absolute; ">
+                    <div class="marking3" style="position: absolute; display:none">
                         <img src ="map/3A.png" width=100%></img>
                     </div>    
                     <div class="marking3" id ="3B" style="position: absolute; display : none;">
@@ -834,7 +835,7 @@
         outputDiv3 = [];
         const selectedNodes1 = [0]; 
         const selectedNodes2 = [0];// 선택된 노드들의 인덱스
-        const selectedNodes3 = [0];
+        const selectedNodes3 = [];
         const selectedMarks = [];
         let images = [
             { src: 'pics/pic1.jpeg', condition: false },
@@ -2388,7 +2389,7 @@
     }
     
     function check3() {
-        const selectedNodes3 = [0];
+        const selectedNodes3 = [];
         for (let i=0; i<result_pic.length; i++) {
             if (result_pic[i]=="pic131"){
                 console.log("3D")
@@ -4330,7 +4331,7 @@
     }
 
     function check8() {
-        const selectedNodes3 = [0];
+        const selectedNodes3 = [];
         for (let i=0; i<result_pic.length; i++) {
             if (result_pic[i]=="pic131"){
                 console.log("3D")
@@ -4657,10 +4658,10 @@
       route2 = result.path.map(index => nodes[selectedNodes[index]]);
         course1 = route1.join("->");
         course2 = route2.join("->");
-        routine1 = '"' + course1 + '"';
+        routine1 = course1 ;
         outputDiv1 = document.getElementById("output1");
         outputDiv1.textContent = routine1;
-        routine2 = '"' + course2 + '"';
+        routine2 = course2 ;
         outputDiv2 = document.getElementById("output2");
         outputDiv2.textContent = routine2;
         outputDiv1 = document.getElementById("output4");
@@ -4697,7 +4698,7 @@
       console.log("최적 경로:", result.path.map(index => nodes[selectedNodes[index]]));
       route3 = result.path.map(index => nodes[selectedNodes[index]]);
         course3 = route3.join("->");
-        routine3 = '"' + course3 + '"';
+        routine3 = course3 ;
         outputDiv3 = document.getElementById("output3");
         outputDiv3.textContent = routine3;
         outputDiv3 = document.getElementById("output8");
