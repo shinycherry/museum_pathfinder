@@ -77,7 +77,6 @@
             <br>
             <input type = 'checkbox' name = 'tag_pic' value = '조선 종이 문헌,기록,비석 귀중한 깔끔한 자세한 단순한 신기한 멋진 귀여운'/><img src="pics2/pic22.png" width="25%" alt="유물22">
             <input type = 'checkbox' name = 'tag_pic' value = '고려 종이 문헌,기록,비석 권위있는 귀중한 깔끔한 문자 자세한 정교한 낯선 멋진 고요한'/><img src="pics2/pic23.jpeg" width="25%" alt="유물23">
-            <input type = 'checkbox' name = 'tag_pic' value = '대한민국 종이 서화,회화 깔끔한 거대한 고요한 단순한 멋진 신비한 아름다운 웅장한 차가운'/><img src="pics2/pic24.png" width="25%" alt="유물24">
             </section>
             <br><br>
             <button onclick='getCheckboxValue()'>확인</button>
@@ -480,7 +479,7 @@
                     </div>
                     <img src = "map/1floor_2_bg.png" width = 100%></div>
 
-                    <div id="output5"></div>
+                    <center><div id="output5"></div></center>
                 </div>
             </div>
         </div>
@@ -2388,7 +2387,7 @@
         calculateOptimalRoute(nodes2, filteredNodes2, distances2);
     }
     
-    function check3() {
+    /*function check3() {
         const selectedNodes3 = [];
         for (let i=0; i<result_pic.length; i++) {
             if (result_pic[i]=="pic131"){
@@ -2683,7 +2682,7 @@
         });
         calculateOptimalRoute2(nodes3, filteredNodes3, distances3);
     }
-   
+   */
     function check4() {
         const selectedNodes1 = [0];
         
@@ -4330,7 +4329,7 @@
         calculateOptimalRoute(nodes2, filteredNodes2, distances2);
     }
 
-    function check8() {
+   /* function check8() {
         const selectedNodes3 = [];
         for (let i=0; i<result_pic.length; i++) {
             if (result_pic[i]=="pic131"){
@@ -4625,6 +4624,8 @@
         });
         calculateOptimalRoute2(nodes3, filteredNodes3, distances3);
     }
+*/
+
 </script>
 
 
@@ -4807,7 +4808,7 @@ function tspSolver2(distances) {
         })
         
 
-    const modal3 = document.getElementById("modal3")
+    /*const modal3 = document.getElementById("modal3")
         const btnModal3 = document.getElementById("btn-modal3")
         btnModal3.addEventListener("click", e => {
             modal3.style.display = "flex"
@@ -4815,7 +4816,7 @@ function tspSolver2(distances) {
         const closeBtn3 = modal3.querySelector(".close-area")
         closeBtn3.addEventListener("click", e => {
             modal3.style.display = "none"
-        })
+        })*/
 
     const modal4 = document.getElementById("modal4")
         const btnModal4 = document.getElementById("btn-modal4")
@@ -4858,7 +4859,7 @@ function tspSolver2(distances) {
             modal7.style.display = "none"
         })     
     
-    const modal8 = document.getElementById("modal8")
+    /*const modal8 = document.getElementById("modal8")
         const btnModal8 = document.getElementById("btn-modal8")
         btnModal8.addEventListener("click", e => {
             modal8.style.display = "flex"
@@ -4866,7 +4867,7 @@ function tspSolver2(distances) {
         const closeBtn8 = modal8.querySelector(".close-area")
         closeBtn8.addEventListener("click", e => {
             modal8.style.display = "none"
-        })     
+        })    */ 
         
 
 
